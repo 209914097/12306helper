@@ -1,0 +1,89 @@
+﻿    <html>
+    <head>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        width: 520px;
+        height: 270px;
+    }
+    table {
+        font-family: 微软雅黑;
+        font-size: 12px;
+        width: 480px;
+        text-align: left;
+        border-collapse: collapse;
+        border-top: 1px solid #69c;
+		border-bottom: 1px solid #69c;
+        margin: 20px;
+        cursor: default;
+
+    }
+    table th {
+        font-weight: normal;
+        font-size: 15px;
+        color: #039;
+        border-bottom: 1px dashed #69c;
+        padding: 12px 17px;
+        white-space: nowrap;
+    }
+    table td {
+        color:#3d4fb3;
+        padding: 7px 17px;
+        white-space: nowrap;
+    }
+	.cancle{
+        color: #a7a7a7;      
+    }
+    table tbody tr:hover td {
+        color: #339;
+        background: #d0dafd;
+    }
+.bar{
+margin-left: 60px;
+}	
+.bt {
+    height: 25px;
+    width: 40px;
+    font-family: 微软雅黑
+}
+.txtin{
+   height: 30px;
+    width: 90px;
+    font-family: 微软雅黑;
+}
+
+div#clock_div {
+    line-height: 48px;
+    font-size: 15px;
+    text-align: center;
+	font-family: 微软雅黑
+}
+div#front {
+    line-height: 48px;
+    font-size: 18px;
+    text-align: center;
+	font-family: 微软雅黑
+}
+    </style>
+    </head>
+    <body>
+	<div id="clock_div"></div>
+
+   <div class="bar">
+   <input class="txtin" type="text"  placeholder="始发站" id="p_startname" value="沈阳"  />
+	<button id="c_bt"class="bt">↑ ↓</button>
+    <input class="txtin" type="text"  placeholder="到达站" id="p_arrivename" value="广州"  /> 
+		
+    <input class="txtin" type="text"  id="p_date" placeholder="日期" value=""/>
+    <button id="s_bt" class="bt">查询</button>
+	</div>
+                               
+    
+
+    <div id="weather">载入中……</div>
+    <script src="js/weather.js"></script>
+    </body>
+    </html>
