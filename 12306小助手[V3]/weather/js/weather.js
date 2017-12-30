@@ -91,7 +91,7 @@ my_clock(clock_div);
 		tem="";		
     };
 	s_bt.onclick = function(){
-	url='https://kyfw.12306.cn/otn/leftTicket/query?leftTicketDTO.train_date='+p_date.value+'&leftTicketDTO.from_station='+code[p_startname.value]+'&leftTicketDTO.to_station='+code[p_arrivename.value]+'&purpose_codes=ADULT';
+	url='https://kyfw.12306.cn/otn/leftTicket/queryO?leftTicketDTO.train_date='+p_date.value+'&leftTicketDTO.from_station='+code[p_startname.value]+'&leftTicketDTO.to_station='+code[p_arrivename.value]+'&purpose_codes=ADULT';
 		console.log(url);
 	httpRequest(url, showWeather);
 	}
