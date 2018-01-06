@@ -8,7 +8,7 @@ var p_date=document.getElementById('p_date');
 var url = ''; 
 	var p_date=document.getElementById("p_date");
 	var today=new Date();
-	var weekday=["星期天","星期一","星期二","星期三","星期四","星期五","星期六"]
+	var weekday=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"]
 	var clock_div = document.getElementById('clock_div');
 			today.setDate(29+today.getDate() )
 	var Date=today.getDate();
@@ -23,6 +23,9 @@ function my_clock(el){
     el.innerHTML = "可预订 "+m+"月"+Date+"日"+weekday[week];
     if(m<10){
 		m="0"+m;
+	}
+     if(Date<10){
+		Date="0"+Date;
 	}
 	p_date.value=year+"-"+m+"-"+Date;
 }
@@ -91,7 +94,7 @@ my_clock(clock_div);
 		tem="";		
     };
 	s_bt.onclick = function(){
-	url='https://kyfw.12306.cn/otn/leftTicket/queryO?leftTicketDTO.train_date='+p_date.value+'&leftTicketDTO.from_station='+code[p_startname.value]+'&leftTicketDTO.to_station='+code[p_arrivename.value]+'&purpose_codes=ADULT';
+	url='https://kyfw.12306.cn/otn/leftTicket/queryA?leftTicketDTO.train_date='+p_date.value+'&leftTicketDTO.from_station='+code[p_startname.value]+'&leftTicketDTO.to_station='+code[p_arrivename.value]+'&purpose_codes=ADULT';
 		console.log(url);
 	httpRequest(url, showWeather);
 	}
