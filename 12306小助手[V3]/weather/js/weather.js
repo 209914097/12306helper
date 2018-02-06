@@ -12,7 +12,7 @@ var url = '';
 	var weekday=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"]
 	var clock_div = document.getElementById('clock_div');
 			today.setDate(29+today.getDate() )
-	var Date=today.getDate();
+	var day=today.getDate();
 	var m=today.getMonth()+1;
 	var week=today.getDay();
 	var year=today.getFullYear(); 
@@ -21,14 +21,14 @@ code=JSON.parse(code);
 
 function my_clock(el){
 		
-    el.innerHTML = "可预订 "+m+"月"+Date+"日"+weekday[week];
+    el.innerHTML = "可预订 "+m+"月"+day+"日"+weekday[week];
     if(m<10){
 		m="0"+m;
 	}
-	if(Date<10){
-		Date="0"+Date;
+	if(day<10){
+		day="0"+day;
 	}
-	p_date.value=year+"-"+m+"-"+Date;
+	p_date.value=year+"-"+m+"-"+day;
 }
 
 function httpRequest(url, callback){
@@ -95,32 +95,38 @@ my_clock(clock_div);
     };
 	
 	l_bt.onclick = function(){
-	today.setDate(today.getDate()-1 );	
-	year = 	today.getFullYear(); 
-	m = today.getMonth()+1;
-	Date = today.getDate();
+	var time=Date.parse(p_date.value);
+	var newday=new Date();
+		newday.setTime(time);
+		newday.setDate(newday.getDate()-1);
+		year=newday.getFullYear();
+		m=newday.getMonth()+1;
+		day=newday.getDate();
 	if(m<10){
 		m="0"+m;
 	}
-	if(Date<10){
-		Date="0"+Date;
+	if(day<10){
+		day="0"+day;
 	}
-	p_date.value=year+"-"+m+"-"+Date;
-	s_bt.click();
+	p_date.value=year+"-"+m+"-"+day;
+	s_bt.click();	
 	};
 	
 	r_bt.onclick = function(){
-	today.setDate(today.getDate()+1 );	
-	year = 	today.getFullYear(); 
-	m = today.getMonth()+1;
-	Date = today.getDate();
+	var time=Date.parse(p_date.value);
+	var newday=new Date();
+		newday.setTime(time);
+		newday.setDate(newday.getDate()+1);
+		year=newday.getFullYear();
+		m=newday.getMonth()+1;
+		day=newday.getDate();
 	if(m<10){
 		m="0"+m;
 	}
-	if(Date<10){
-		Date="0"+Date;
+	if(day<10){
+		day="0"+day;
 	}
-	p_date.value=year+"-"+m+"-"+Date;
+	p_date.value=year+"-"+m+"-"+day;
 	s_bt.click();	
 	};
 	
