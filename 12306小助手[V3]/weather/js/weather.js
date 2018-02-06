@@ -5,8 +5,9 @@ var p_startname=document.getElementById('p_startname');
 var p_arrivename=document.getElementById('p_arrivename');
 var s_bt=document.getElementById('s_bt');
 var p_date=document.getElementById('p_date');
+var l_date=document.getElementById('l_date');
+var r_date=document.getElementById('r_date');
 var url = ''; 
-	var p_date=document.getElementById("p_date");
 	var today=new Date();
 	var weekday=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"]
 	var clock_div = document.getElementById('clock_div');
@@ -24,7 +25,7 @@ function my_clock(el){
     if(m<10){
 		m="0"+m;
 	}
-     if(Date<10){
+	if(Date<10){
 		Date="0"+Date;
 	}
 	p_date.value=year+"-"+m+"-"+Date;
@@ -86,16 +87,47 @@ function showWeather(result){
 
 my_clock(clock_div);
 
-
 	c_bt.onclick = function(){
         var tem=p_startname.value;		
 		p_startname.value=p_arrivename.value;
 		p_arrivename.value=tem;
 		tem="";		
     };
+	
+	l_bt.onclick = function(){
+	today.setDate(today.getDate()-1 );	
+	year = 	today.getFullYear(); 
+	m = today.getMonth()+1;
+	Date = today.getDate();
+	if(m<10){
+		m="0"+m;
+	}
+	if(Date<10){
+		Date="0"+Date;
+	}
+	p_date.value=year+"-"+m+"-"+Date;
+	s_bt.click();
+	};
+	
+	r_bt.onclick = function(){
+	today.setDate(today.getDate()+1 );	
+	year = 	today.getFullYear(); 
+	m = today.getMonth()+1;
+	Date = today.getDate();
+	if(m<10){
+		m="0"+m;
+	}
+	if(Date<10){
+		Date="0"+Date;
+	}
+	p_date.value=year+"-"+m+"-"+Date;
+	s_bt.click();	
+	};
+	
 	s_bt.onclick = function(){
 	url='https://kyfw.12306.cn/otn/leftTicket/queryZ?leftTicketDTO.train_date='+p_date.value+'&leftTicketDTO.from_station='+code[p_startname.value]+'&leftTicketDTO.to_station='+code[p_arrivename.value]+'&purpose_codes=ADULT';
 		console.log(url);
 	httpRequest(url, showWeather);
 	}
+	
 	s_bt.click();
