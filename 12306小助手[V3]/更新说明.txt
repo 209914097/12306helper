@@ -1,10 +1,11 @@
-¸ü¸ÄÁËjs´úÂë£º 
+æ›´æ”¹äº†jsä»£ç ï¼š 
 table += '<td class="cancle"><div>'+d[1]+'</div></td>';
 table += '<td><div style="width:40px">'+map[d[6]]+'</div>'+'<div style="width:40px">'+map[d[7]]+'</div></td>';
 table += '<td class="cancle" style="width:40px"><div>'+map[d[6]]+'</div>'+'<div style="width:40px">'+map[d[7]]+'</div></td>';
-¸ü¸ÄÁËcss´úÂë£º
+æ›´æ”¹äº†cssä»£ç ï¼š
  table td {
         color:#3d4fb3;
         padding: 7px 17px;
        
     }
+ç”¨æ­£åˆ™è¡¨è¾¾å¼ åŒ¹é…äº†CLeftTicketUrlè·å–leftTicket/queryAï¼ŒåŠ¨æ€è·å–æŸ¥ç¥¨API
