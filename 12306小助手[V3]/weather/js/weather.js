@@ -35,6 +35,7 @@ function httpRequest(url, callback) {
     var xhr = new XMLHttpRequest();
     xhr.open("GET", url, true);
     xhr.onreadystatechange = function() {
+        document.getElementById('weather').innerHTML = " <div style='margin-top:50px;color:#3d4fb3;font-size:18px;text-align:center;font-family:微软雅黑'><img src='images/load.gif'  alt='加载中...' /></div>";
         if (xhr.readyState == 4) {
             callback(xhr.responseText);
         }
@@ -77,7 +78,7 @@ function showWeather(result) {
         }
         table += '</table>';
     } catch (err) {
-        table = " <div style='margin-top:8px;color:#3d4fb3;font-size:18px;text-align:center;font-family:微软雅黑'>囧rz oh！走神了,请重试</div>";
+        table = " <div style='margin-top:10px;text-align:center;'><img src='images/err.gif' /></div><div style='margin-top:10px;color:#3d4fb3;font-size:18px;text-align:center;font-family:微软雅黑'>囧rz oh！走神了,请重试</div>";
     }
     document.getElementById('weather').innerHTML = table;
 
