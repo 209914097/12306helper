@@ -1,11 +1,25 @@
-更改了js代码： 
-table += '<td class="cancle"><div>'+d[1]+'</div></td>';
-table += '<td><div style="width:40px">'+map[d[6]]+'</div>'+'<div style="width:40px">'+map[d[7]]+'</div></td>';
-table += '<td class="cancle" style="width:40px"><div>'+map[d[6]]+'</div>'+'<div style="width:40px">'+map[d[7]]+'</div></td>';
-更改了css代码：
- table td {
-        color:#3d4fb3;
-        padding: 7px 17px;
-       
+添加了加载时会转圈圈等待的图片，
+添加了加载数据出错时会跳坑的图片。
+
+popup.html中变更代码为
+<div id="weather"></div>
+
+weather.js中变更代码为
+
+function httpRequest(url, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", url, true);
+    xhr.onreadystatechange = function() {
+		
+		document.getElementById('weather').innerHTML = " <div style='margin-top:50px;color:#3d4fb3;font-size:18px;text-align:center;font-family:微软雅黑'><img src='images/load.gif'  alt='加载中...' /></div>";
+        
+		if (xhr.readyState == 4) {						
+            callback(xhr.responseText);			
+        }
     }
-用正则表达式 匹配了CLeftTicketUrl获取leftTicket/queryA，动态获取查票API
+    xhr.send();
+}
+
+catch (err) {
+        table = " <div style='margin-top:10px;text-align:center;'><img src='images/err.gif' /></div><div style='margin-top:10px;color:#3d4fb3;font-size:18px;text-align:center;font-family:微软雅黑'>囧rz oh！走神了,请重试</div>";
+    }
